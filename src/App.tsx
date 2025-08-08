@@ -9,8 +9,8 @@ export default function App() {
     7, 8, 9, '-',
     0, '/', '*', '=']
 
-  const operaciones = (prompt: HTMLDivElement) => {
-    alert(prompt.innerHTML)
+  const operaciones = (prompt: HTMLDivElement): HTMLDivElement => {
+    return prompt
   }
   const colorClase = (num: any) => {
     if (typeof (num) == 'number') return `bg-gray-700 text-white p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer hover:bg-gray-200 hover:text-black border-1 border-gray-700 hover:border-gray-700 mx-auto`
@@ -24,16 +24,15 @@ export default function App() {
 
   const numeros = () => {
     const numero = (num: number | string) => {
-      let panel: any = document.getElementById('input')
+      let panel: HTMLDivElement = document.querySelector('#input')!
       let accion = () => {
-        if (num != '=' && num != 'c') setPantalla(panel.append(num))
+        if (num != '=' && num != 'c') setPantalla(panel.innerHTML += `<p>${num}</p>`)
         if (num == 'c') {
-          setPantalla(panel.textContent = '')
-          setPantalla(panel.append(''))
+          setPantalla(panel.innerText = '')
         }
         if (num == '=') {
-          setPantalla(panel.textContent = '')
-          setPantalla(panel.append(operaciones(panel)))
+          setPantalla(panel.innerText = '')
+          setPantalla(panel.innerHTML = `<p>${operaciones(panel)}</p>`)
         }
       }
       return (<button
@@ -51,7 +50,7 @@ export default function App() {
   return (
     <>
       <div className="w-fit mx-auto rounded-md flex flex-col gap-10 bg-gray-400 p-10">
-        <div id='input' className="mx-auto bg-white rounded-md border-1 p-2 text-4xl w-135 h-20 m-2 content-center"></div>
+        <div id='input' className="mx-auto flex bg-white rounded-md border-1 p-2 text-4xl w-135 h-20 m-2 items-center"></div>
         <section className="grid grid-cols-4 w-fit gap-5 mx-auto">
           {numeros()}
         </section>
