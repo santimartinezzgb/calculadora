@@ -76,8 +76,6 @@ La aplicación se abrirá en `http://localhost:3000`.
 * Soporte para teclas: Permitir entrada mediante teclado físico.
 * Operaciones avanzadas: Incluir raíz cuadrada, potencias, funciones trigonométricas, etc.
 * Modo oscuro: Tema oscuro para mejorar la experiencia de usuario.
-* Persistencia local: Guardar historial de operaciones en el almacenamiento local del navegador.
-* Soporte multilenguaje: Añadir traducciones para la interfaz.
 
 ---
 
