@@ -1,69 +1,109 @@
-# React + TypeScript + Vite
+# Calculadora Básica con React y TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una calculadora web sencilla que permite realizar operaciones matemáticas básicas, construida con React, TypeScript y Tailwind CSS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Descripción
 
-## Expanding the ESLint configuration
+Este proyecto es una aplicación de calculadora desarrollada con:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** para la interfaz de usuario  
+- **TypeScript** para un tipado seguro  
+- **Tailwind CSS** para un diseño moderno y responsivo
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Permite realizar operaciones como suma, resta, multiplicación y división, con una interfaz intuitiva y funcional.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ⚙️ Instalación
+
+Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
+
+### 1. Clona el repositorio:
+
+```bash
+git clone https://github.com/santimartinezDev/calculadora-React-TS.git
+````
+
+### 2. Navega al directorio del proyecto:
+
+```bash
+cd calculadora-React-TS
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Instala las dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Puedes usar uno de los siguientes gestores de paquetes:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+yarn install
+pnpm install
 ```
+
+### 4. Inicia la aplicación en modo desarrollo:
+
+```bash
+npm start
+yarn start
+pnpm start
+```
+
+La aplicación se abrirá en `http://localhost:3000`.
+
+---
+
+## 🧮 Uso
+
+* Ingresa números y operadores usando los botones de la interfaz.
+* Presiona el botón `=` para obtener el resultado de la operación.
+* Usa el botón `C` para reiniciar la calculadora.
+
+---
+
+## 🛠 Tecnologías utilizadas
+
+* **React**: Biblioteca de JavaScript para construir interfaces de usuario dinámicas.
+* **TypeScript**: Superset de JavaScript que añade tipado estático para un código más robusto.
+* **Tailwind CSS**: Framework de CSS basado en utilidades para un diseño rápido y responsivo.
+
+---
+
+## 🚀 Futuras mejoras
+
+* Historial de operaciones: Mostrar operaciones recientes realizadas por el usuario.
+* Soporte para teclas: Permitir entrada mediante teclado físico.
+* Operaciones avanzadas: Incluir raíz cuadrada, potencias, funciones trigonométricas, etc.
+* Modo oscuro: Tema oscuro para mejorar la experiencia de usuario.
+* Persistencia local: Guardar historial de operaciones en el almacenamiento local del navegador.
+* Soporte multilenguaje: Añadir traducciones para la interfaz.
+
+---
+
+## 🤝 Contribuir
+
+1. Haz un **fork** del repositorio.
+2. Crea una rama para tu funcionalidad:
+
+```bash
+git checkout -b feature/nueva-funcionalidad
+```
+
+3. Confirma tus cambios:
+
+```bash
+git commit -m "Añadir nueva funcionalidad"
+```
+
+4. Empuja tus cambios:
+
+```bash
+git push origin feature/nueva-funcionalidad
+```
+
+5. Abre un **Pull Request** en GitHub.
+
+---
+
+Dejar tu ⭐ es gratis :)
