@@ -9,9 +9,8 @@ export default function App() {
     7, 8, 9, '-',
     0, '/', '*', '=']
 
-  const operaciones = (prompt: HTMLDivElement): HTMLDivElement => {
-    return prompt
-  }
+  const operaciones = (prompt: string) => { return eval(prompt) }
+
   const colorClase = (num: any) => {
     if (typeof (num) == 'number') return `bg-gray-700 text-white p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer hover:bg-gray-200 hover:text-black border-1 border-gray-700 hover:border-gray-700 mx-auto`
 
@@ -28,11 +27,11 @@ export default function App() {
       let accion = () => {
         if (num != '=' && num != 'c') setPantalla(panel.innerHTML += `<p>${num}</p>`)
         if (num == 'c') {
-          setPantalla(panel.innerText = '')
+          setPantalla(panel.innerHTML = '')
         }
         if (num == '=') {
-          setPantalla(panel.innerText = '')
-          setPantalla(panel.innerHTML = `<p>${operaciones(panel)}</p>`)
+          const resultado = operaciones(panel.textContent)
+          setPantalla(panel.innerHTML = `<p>${resultado}</p>`)
         }
       }
       return (<button
