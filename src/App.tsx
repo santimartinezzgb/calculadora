@@ -21,10 +21,10 @@ export default function App() {
       return `bg-${col}-700 hover:bg-${col}-200 border-${col}-700 hover:border-${col}-700 text-white hover:text-${col}-700 p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer border-1 mx-auto`
     }
 
-    if (typeof (num) == 'number') return color(`gray`)
-    if (typeof (num) == 'string' && num != '=' && num != 'c') return color('blue')
-    if (num == '=') return color('orange')
-    if (num == 'c') return color('red')
+    return (typeof (num) == 'number') ? color(`gray`)
+    : (typeof (num) == 'string' && num != '=' && num != 'c') ? color('blue')
+    : (num == '=') ? color('orange')
+    : (num == 'c') ? color('red') :''
   }
 
   const numeros = () => {
