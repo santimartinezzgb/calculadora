@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function App() {
   const [pantalla, setPantalla] = useState('')
 
-  let listaNumeros = [
+  const listaNumeros: (string | number)[] = [
     1, 2, 3, 'c',
     4, 5, 6, '+',
     7, 8, 9, '-',
@@ -16,21 +16,21 @@ export default function App() {
     } else { return ('Operación no válida') }
   }
 
+  const colorClase = (num: number | string) => {
+    const color = (col: string) => {
+      return `bg-${col}-700 hover:bg-${col}-200 border-${col}-700 hover:border-${col}-700 text-white hover:text-${col}-700 p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer border-1 mx-auto`
+    }
 
-  const colorClase = (num: Number | string) => {
-    if (typeof (num) == 'number') return `bg-gray-700 text-white p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer hover:bg-gray-200 hover:text-black border-1 border-gray-700 hover:border-gray-700 mx-auto`
-
-    if (typeof (num) == 'string' && num != '=' && num != 'c') return `bg-blue-700 text-white p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer hover:bg-blue-200 hover:text-black border-1 border-blue-700 hover:border-blue-700 mx-auto`
-
-    if ((num) == '=') return `bg-orange-700 text-white p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer hover:bg-orange-200 hover:text-orange-700 border-1 border-orange-700 hover:border-orange-700 mx-auto`
-
-    if ((num) == 'c') return `bg-red-600 text-white p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer hover:bg-red-200 hover:text-red-600 border-1 border-red-600 hover:border-red-600 mx-auto`
+    if (typeof (num) == 'number') return color(`gray`)
+    if (typeof (num) == 'string' && num != '=' && num != 'c') return color('blue')
+    if (num == '=') return color('orange')
+    if (num == 'c') return color('red')
   }
 
   const numeros = () => {
     const numero = (num: number | string) => {
-      let panel: HTMLDivElement = document.querySelector('#input')!
-      let accion = () => {
+      const panel: HTMLDivElement = document.querySelector('#input')!
+      const accion = () => {
         if (num != '=' && num != 'c') setPantalla(panel.innerHTML += `<p>${num}</p>`)
         if (num == 'c') setPantalla(panel.innerHTML = '')
         if (num == '=') {
