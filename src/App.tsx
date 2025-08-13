@@ -21,10 +21,10 @@ export default function App() {
       return `bg-${col}-700 hover:bg-${col}-200 border-${col}-700 hover:border-${col}-700 text-white hover:text-${col}-700 p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer border-1 mx-auto`
     }
 
-    return (typeof (num) == 'number') ? color(`gray`)
-    : (typeof (num) == 'string' && num != '=' && num != 'c') ? color('blue')
-    : (num == '=') ? color('orange')
-    : (num == 'c') ? color('red') :''
+    if (typeof (num) == 'number') return color(`gray`)
+    if (typeof (num) == 'string' && num != '=' && num != 'c') return color('blue')
+    if (num == '=') return color('orange')
+    if (num == 'c') return color('red')
   }
 
   const numeros = () => {
@@ -51,14 +51,19 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-5">
       <div className="w-fit mx-auto rounded-md flex flex-col gap-10 bg-gray-400 p-10">
         <div id='input' className="mx-auto flex bg-white rounded-md border-1 p-2 text-4xl w-135 h-20 m-2 items-center"></div>
         <section className="grid grid-cols-4 w-fit gap-5 mx-auto">
           {numeros()}
         </section>
       </div>
-    </>
+      <a href="https://www.github.com/santimartinezDev" className="flex gap-2 mx-auto bg-black w-fit p-2 rounded-md">
+        <object type="image/svg+xml" data="logoGitHub.svg" width="24" height="24">Logo de GitHub
+        </object>
+        <p className="text-white">santimartinezDev</p>
+      </a>
+    </div>
   )
 }
 
