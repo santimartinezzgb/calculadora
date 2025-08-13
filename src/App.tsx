@@ -7,11 +7,17 @@ export default function App() {
     1, 2, 3, 'c',
     4, 5, 6, '+',
     7, 8, 9, '-',
-    0, '/', '*', '=']
+    0, '/', '*', '=', '.']
 
-  const operaciones = (prompt: string) => { return eval(prompt) }
+  const operaciones = (prompt: string) => {
+    const resultado = eval(prompt)
+    if (isNaN(resultado) == false) {
+      return eval(prompt)
+    } else { return ('Operación no válida') }
+  }
 
-  const colorClase = (num: any) => {
+
+  const colorClase = (num: Number | string) => {
     if (typeof (num) == 'number') return `bg-gray-700 text-white p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer hover:bg-gray-200 hover:text-black border-1 border-gray-700 hover:border-gray-700 mx-auto`
 
     if (typeof (num) == 'string' && num != '=' && num != 'c') return `bg-blue-700 text-white p-2 size-30 font-semibold rounded-md text-5xl cursor-pointer hover:bg-blue-200 hover:text-black border-1 border-blue-700 hover:border-blue-700 mx-auto`
@@ -26,9 +32,7 @@ export default function App() {
       let panel: HTMLDivElement = document.querySelector('#input')!
       let accion = () => {
         if (num != '=' && num != 'c') setPantalla(panel.innerHTML += `<p>${num}</p>`)
-        if (num == 'c') {
-          setPantalla(panel.innerHTML = '')
-        }
+        if (num == 'c') setPantalla(panel.innerHTML = '')
         if (num == '=') {
           const resultado = operaciones(panel.textContent)
           setPantalla(panel.innerHTML = `<p>${resultado}</p>`)
