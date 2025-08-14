@@ -2,6 +2,15 @@ import { useState } from "react";
 
 export default function App() {
   const [pantalla, setPantalla] = useState('')
+  const [tema, setTema] = useState('')
+  let interruptor = true;
+
+  const cambiarTema = () => {
+    if (interruptor == true) { interruptor = false } else { interruptor = true }
+    return (interruptor == true)
+      ? setTema("w-fit mx-auto rounded-md flex flex-col gap-10 bg-gray-800 p-10")
+      : setTema("w-fit mx-auto rounded-md flex flex-col gap-10 bg-white p-10")
+  }
 
   const listaNumeros: (string | number)[] = [
     1, 2, 3, 'c',
@@ -55,11 +64,10 @@ export default function App() {
     <>
       <div className="flex flex-col gap-5">
         <section className="flex mx-auto gap-5">
-          <button id='botonLuna' className="bg-black border-2 border-amber-300 p-2 rounded-md font-bold cursor-pointer transition-all">🌛</button>
-          <button id='botonSol' className="bg-white border-2 border-amber-300 p-2 rounded-md font-bold cursor-pointer transition-all">🌞</button>
+          <button onClick={cambiarTema} className="bg-black border-2 border-amber-300 p-2 rounded-md font-bold cursor-pointer transition-all">🌛</button>
         </section>
 
-        <div className="w-fit mx-auto rounded-md flex flex-col gap-10 bg-gray-400 p-10">
+        <div className={tema}>
           <div id='input' className="mx-auto flex bg-white rounded-md border-1 p-2 text-4xl w-135 h-20 m-2 items-center"></div>
           <section className="grid grid-cols-4 w-fit gap-5 mx-auto">
             {numeros()}
