@@ -7,7 +7,8 @@ export default function App() {
     1, 2, 3, 'c',
     4, 5, 6, '+',
     7, 8, 9, '-',
-    0, '/', '*', '=', '.']
+    0, '/', '*', '=',
+    '.']
 
   const operaciones = (prompt: string) => {
     const resultado = eval(prompt)
@@ -51,19 +52,28 @@ export default function App() {
   }
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="w-fit mx-auto rounded-md flex flex-col gap-10 bg-gray-400 p-10">
-        <div id='input' className="mx-auto flex bg-white rounded-md border-1 p-2 text-4xl w-135 h-20 m-2 items-center"></div>
-        <section className="grid grid-cols-4 w-fit gap-5 mx-auto">
-          {numeros()}
+    <>
+      <div className="flex flex-col gap-5">
+        <section className="flex mx-auto gap-5">
+          <button id='botonLuna' className="bg-black border-2 border-amber-300 p-2 rounded-md font-bold cursor-pointer transition-all">🌛</button>
+          <button id='botonSol' className="bg-white border-2 border-amber-300 p-2 rounded-md font-bold cursor-pointer transition-all">🌞</button>
         </section>
+
+        <div className="w-fit mx-auto rounded-md flex flex-col gap-10 bg-gray-400 p-10">
+          <div id='input' className="mx-auto flex bg-white rounded-md border-1 p-2 text-4xl w-135 h-20 m-2 items-center"></div>
+          <section className="grid grid-cols-4 w-fit gap-5 mx-auto">
+            {numeros()}
+          </section>
+        </div>
+
+        <a href="https://www.github.com/santimartinezDev" className="flex gap-2 mx-auto bg-black w-fit p-2 rounded-md">
+          <object type="image/svg+xml" data="logoGitHub.svg" width="24" height="24">Logo de GitHub
+          </object>
+          <p className="text-white">santimartinezDev</p>
+        </a>
       </div>
-      <a href="https://www.github.com/santimartinezDev" className="flex gap-2 mx-auto bg-black w-fit p-2 rounded-md">
-        <object type="image/svg+xml" data="logoGitHub.svg" width="24" height="24">Logo de GitHub
-        </object>
-        <p className="text-white">santimartinezDev</p>
-      </a>
-    </div>
+    </>
+
   )
 }
 
