@@ -23,13 +23,13 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
 ### 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/santimartinezDev/calculadora-React-TS.git
+git clone https://github.com/santimartinezDev/calculador.git
 ````
 
 ### 2. Navega al directorio del proyecto:
 
 ```bash
-cd calculadora-React-TS
+cd calculadora
 ```
 
 ### 3. Instala las dependencias:
